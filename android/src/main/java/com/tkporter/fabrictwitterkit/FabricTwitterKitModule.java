@@ -87,7 +87,7 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
 
     @ReactMethod
     public void initialize(String consumerKey, String consumerSecret) {
-        TwitterConfig config = new TwitterConfig.Builder(this)
+        TwitterConfig config = new TwitterConfig.Builder(reactContext)
             .twitterAuthConfig(new TwitterAuthConfig(consumerKey, consumerSecret))
             .build();
         Twitter.initialize(config);
