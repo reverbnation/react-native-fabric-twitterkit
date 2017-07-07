@@ -13,13 +13,16 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTBridge.h>
-//#import <Crashlytics/Crashlytics.h>
 #import <TwitterKit/TwitterKit.h>
 
 @implementation FabricTwitterKit
 @synthesize bridge = _bridge;
 
 RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(initialize:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret) {
+    [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
+}
 
 RCT_EXPORT_METHOD(login:(RCTResponseSenderBlock)callback)
 {

@@ -21,6 +21,8 @@ import com.google.gson.Gson;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 import com.twitter.sdk.android.core.services.StatusesService;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
@@ -80,6 +82,14 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
             callback.invoke(completed, cancelled, error);
             callback = null;
         }
+    }
+
+    @ReactMethod
+    public void initialize(String consumerKey, String consumerSecret) {
+        TwitterConfig config = new TwitterConfig.Builder(this)
+            .twitterAuthConfig(new TwitterAuthConfig(consumerKey, consumerSecret))
+            .build();
+        Twitter.initialize(config);
     }
 
     @ReactMethod
