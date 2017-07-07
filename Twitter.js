@@ -11,6 +11,12 @@ var { NativeModules } = require('react-native');
 var SMXTwitter = NativeModules.SMXTwitter;
 
 module.exports = {
+  initialize: function (consumerKey, consumerSecret) {
+    SMXTwitter.initialize(consumerKey, consumerSecret);
+  },
+  getConsumerKey: function (cb) {
+    SMXTwitter.getConsumerKey(cb);
+  },
   login: function (cb) {
     SMXTwitter.login(cb);
   },

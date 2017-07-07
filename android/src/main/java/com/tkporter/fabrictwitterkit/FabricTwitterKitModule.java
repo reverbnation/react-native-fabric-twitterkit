@@ -94,6 +94,11 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
     }
 
     @ReactMethod
+    public void getConsumerKey(final Callback callback) {
+        callback.invoke(TwitterCore.getInstance().getAuthConfig().getConsumerKey());
+    }
+
+    @ReactMethod
     public void composeTweet(ReadableMap options, final Callback callback) {
         try {
             this.callback = callback;

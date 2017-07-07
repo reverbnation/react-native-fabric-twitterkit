@@ -24,6 +24,10 @@ RCT_EXPORT_METHOD(initialize:(NSString *)consumerKey consumerSecret:(NSString *)
     [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
 }
 
+RCT_EXPORT_METHOD(getConsumerKey:(RCTResponseSenderBlock)callback) {
+    callback(@[[[[Twitter sharedInstance] authConfig] consumerKey]]);
+}
+
 RCT_EXPORT_METHOD(login:(RCTResponseSenderBlock)callback)
 {
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
