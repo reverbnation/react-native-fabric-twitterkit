@@ -53,6 +53,8 @@ public class FabricTwitterKitPackage implements ReactPackage {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        twitterKitModule.onActivityResult(requestCode, resultCode, data);
+        if (twitterKitModule != null) {
+            twitterKitModule.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
