@@ -2,7 +2,7 @@
   "name": "react-native-fabric-twitterkit",
   "version": "0.3.0",
   "description": "A React Native library for Sending an SMS with Callback",
-  "main": "index",
+  "main": "index.js",
   "rnpm": {
     "android": {
       "packageInstance": "FabricTwitterKitPackage.getInstance()"
